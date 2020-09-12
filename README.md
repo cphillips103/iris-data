@@ -1,20 +1,23 @@
-Iris Data Analysis
+#Iris Data Analysis
 
-
+```
 The Iris Data set is a multivariate data set. Four features measured from each sample are —sepal length, sepal width, petal length and petal width, in centimeters. Iris data is publicly available to use and is one of the most widely used data set.
 
 The data is also known as Fisher's Iris data set or Anderon's Iris data set. [1] Edgar Anderson collected data to quantify the morphologic variation of Iris flowers of three related species. [2] 
 
 The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other. [3]
 
-Goal
+###Goal
 The goal of this analysis is to determine if using the available data set can lead towards a prediction system to identify iris flower species when presented with the flower measurements.
 
-Software
+```
+---
+###Software
 R Studio v.1.3.959
 
 ---
- Load Libraries
+
+```Load Libraries
 
 library(dplyr)
    
@@ -40,10 +43,11 @@ library(fpc)
 library(factoextra)
 
 library(knitr)
+```
 ---
 
 ---
- Load Dataset Iris
+```Load Dataset Iris
 
 dim(iris)
    [1] 150   5
@@ -76,17 +80,18 @@ summary(iris)
                    
                    
 ---  
+```
 names(iris)
 
 "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
 
 ---
-
+```
 Examine Iris data information
 
  Chart matrix
 pairs(iris[,1:4], col=iris$Species)
-
+```
 ---
 ![](iris-images/matrix.png)
 ---
@@ -96,7 +101,8 @@ Initial Results from the chart matrix shows there there appears to be some clust
 
 
 ---
- Grid analysis of histograms of the Sepal Lengt and Width and the Petal Length and Width.
+
+```Grid analysis of histograms of the Sepal Lengt and Width and the Petal Length and Width.
 
 p1 <- ggplot(aes(x = Sepal.Length, fill = Species), data = iris) +
   facet_wrap(~Species) + geom_histogram()
@@ -116,6 +122,7 @@ grid.arrange(p1, p2, p3, p4, ncol = 2)
    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
 ---
 
 ![](iris-images/histograms.png)
@@ -126,7 +133,7 @@ grid.arrange(p1, p2, p3, p4, ncol = 2)
 Histograms show some patterns that show some relationship between the widths and lengths of the sepals and petals of the flowers.
 
 ---
- Relook at the relationship between width and length with scatterplot
+```Relook at the relationship between width and length with scatterplot
 sp1 <- ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species), data = iris) +
   facet_wrap(~Species) + geom_point()
 
@@ -136,7 +143,7 @@ sp2 <- ggplot(aes(x = Petal.Length, y = Petal.Width, color = Species), data = ir
 
 
 grid.arrange(sp1, sp2, ncol = 1)
-
+```
 ---
 ![](iris-images/scatterplots.png)
 
@@ -149,7 +156,7 @@ grid.arrange(sp1, sp2, ncol = 1)
 
 
 ---
- Relook of the Iris data using boxplots
+```Relook of the Iris data using boxplots
 
 
 bp1 <- ggplot(aes(x = Petal.Width, y = Petal.Length, color = Species), data = iris) +
@@ -159,12 +166,13 @@ bp2 <- ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species), data = ir
   geom_boxplot()
 
 grid.arrange(bp1, bp2, ncol = 1)
+```
 ---
 
 ![](iris-images/boxplots.png)
 
 ---
- Cluster analysis of the Iris data.
+```Cluster analysis of the Iris data.
 
  Cluster analysis, droping species colum to clean dataset.
 
@@ -177,27 +185,28 @@ clusters_iris <- kmeans(data_for_clustering, centers = 3)
  ploting of the final dataset
 
 plotcluster(data_for_clustering,clusters_iris$cluster) 
+```
 
 ---
 ![](iris-images/clusterplot.png)
 
 ---
 
- Another look at clustering of the Iris data.
+```Another look at clustering of the Iris data.
 
 clusplot(data_for_clustering, clusters_iris$cluster, color = TRUE, shade = TRUE)
-
+```
 ---
 ![](iris-images/clusterplot2.png)
 
 ---
 
-Conclusion
+###Conclusion
 
 Based on the last plot, it appears that there are two cluster groups, Iris setosa, while the other cluster contains both Iris virginica and Iris versicolor. The data provided in the Iris set doesn’t provide enough separation between virginica and versicolor to be used as a predictive model.
 
 ---
-Credits
+###Credits
 
 [1] The Use of Multiple Measurements in Taxonomic Problems. Author: Fisher, Ronald Aylmer, Sir, 1890-1962 https://digital.library.adelaide.edu.au/dspace/handle/2440/15227
 
