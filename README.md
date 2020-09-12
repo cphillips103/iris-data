@@ -1,6 +1,5 @@
 # Iris Data Analysis
 
-```
 The Iris Data set is a multivariate data set. Four features measured from each sample are —sepal length, sepal width, petal length and petal width, in centimeters. Iris data is publicly available to use and is one of the most widely used data set.
 
 The data is also known as Fisher's Iris data set or Anderon's Iris data set. [1] Edgar Anderson collected data to quantify the morphologic variation of Iris flowers of three related species. [2] 
@@ -10,7 +9,6 @@ The data set consists of 50 samples from each of three species of Iris (Iris set
 ###Goal
 The goal of this analysis is to determine if using the available data set can lead towards a prediction system to identify iris flower species when presented with the flower measurements.
 
-```
 
 
 ### Software
