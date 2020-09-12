@@ -6,7 +6,7 @@ The data is also known as Fisher's Iris data set or Anderon's Iris data set. [1]
 
 The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other. [3]
 
-###Goal
+### Goal
 The goal of this analysis is to determine if using the available data set can lead towards a prediction system to identify iris flower species when presented with the flower measurements.
 
 
@@ -80,12 +80,12 @@ summary(iris)
                    
  
 ```
+
+```
 names(iris)
 
 "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
 
-
-```
 Examine Iris data information
 
  Chart matrix
