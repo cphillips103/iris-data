@@ -53,7 +53,7 @@ dim(iris)
  Examine dataset information
 ```
 
----
+```
 head(iris, 4)
      Sepal.Length Sepal.Width Petal.Length Petal.Width Species
    1          5.1         3.5          1.4         0.2  setosa
@@ -64,9 +64,9 @@ tail(iris, 2)
        Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
    149          6.2         3.4          5.4         2.3 virginica
    150          5.9         3.0          5.1         1.8 virginica
----
+```
 
----
+```
 summary(iris)
      Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
     Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
@@ -80,7 +80,7 @@ summary(iris)
     versicolor:50  
     virginica :50  
                    
----                   
+```             
 
 
 ```
