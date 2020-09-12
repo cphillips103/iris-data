@@ -2,7 +2,7 @@
 
 The Iris Data set is a multivariate data set. Four features measured from each sample are —sepal length, sepal width, petal length and petal width, in centimeters. Iris data is publicly available to use and is one of the most widely used data set.
 
-The data is also known as Fisher's Iris data set or Anderon's Iris data set. [1] Edgar Anderson collected data to quantify the morphologic variation of Iris flowers of three related species. [2] 
+The data is also known as Fisher's Iris data set or Anderson's Iris data set. [1] Edgar Anderson collected data to quantify the morphologic variation of Iris flowers of three related species. [2] 
 
 The data set consists of 50 samples from each of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). Four features were measured from each sample: the length and the width of the sepals and petals, in centimeters. Based on the combination of these four features, Fisher developed a linear discriminant model to distinguish the species from each other. [3]
 
@@ -51,7 +51,9 @@ library(knitr)
 dim(iris)
    [1] 150   5
  Examine dataset information
+```
 
+---
 head(iris, 4)
      Sepal.Length Sepal.Width Petal.Length Petal.Width Species
    1          5.1         3.5          1.4         0.2  setosa
@@ -62,8 +64,9 @@ tail(iris, 2)
        Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
    149          6.2         3.4          5.4         2.3 virginica
    150          5.9         3.0          5.1         1.8 virginica
+---
 
-
+---
 summary(iris)
      Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
     Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
@@ -77,9 +80,8 @@ summary(iris)
     versicolor:50  
     virginica :50  
                    
-                   
- 
-```
+---                   
+
 
 ```
 names(iris)
@@ -101,7 +103,7 @@ Initial Results from the chart matrix shows there there appears to be some clust
 
 
 
-```Grid analysis of histograms of the Sepal Lengt and Width and the Petal Length and Width.
+```Grid analysis of histograms of the Sepal Length and Width and the Petal Length and Width.
 
 p1 <- ggplot(aes(x = Sepal.Length, fill = Species), data = iris) +
   facet_wrap(~Species) + geom_histogram()
@@ -169,10 +171,12 @@ grid.arrange(bp1, bp2, ncol = 1)
 
 ![](iris-images/boxplots.png)
 
+Boxplots show that versicolor and virginica are close in petal length to width and also close in sepal length to sepal width. Lack of clear separation between ratios might reduce accuracy of a predictive iris species model based on the available sample measurements.
+
 
 ```Cluster analysis of the Iris data.
 
- Cluster analysis, droping species colum to clean dataset.
+ Cluster analysis, dropping species column to clean dataset.
 
 data_for_clustering <- iris[,-5] 
 
@@ -201,7 +205,7 @@ clusplot(data_for_clustering, clusters_iris$cluster, color = TRUE, shade = TRUE)
 
 ### Conclusion
 
-Based on the last plot, it appears that there are two cluster groups, Iris setosa, while the other cluster contains both Iris virginica and Iris versicolor. The data provided in the Iris set doesn’t provide enough separation between virginica and versicolor to be used as a predictive model.
+Based on the last plot, it appears that there are two cluster groups, iris setosa, while the other cluster contains both iris virginica and iris versicolor. The data provided in the Iris set doesn’t provide enough separation between virginica and versicolor to be used as a predictive model.
 
 
 ### Credits
