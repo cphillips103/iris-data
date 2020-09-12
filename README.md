@@ -1,4 +1,4 @@
-#Iris Data Analysis
+# Iris Data Analysis
 
 ```
 The Iris Data set is a multivariate data set. Four features measured from each sample are —sepal length, sepal width, petal length and petal width, in centimeters. Iris data is publicly available to use and is one of the most widely used data set.
@@ -11,8 +11,9 @@ The data set consists of 50 samples from each of three species of Iris (Iris set
 The goal of this analysis is to determine if using the available data set can lead towards a prediction system to identify iris flower species when presented with the flower measurements.
 
 ```
----
-###Software
+
+
+### Software
 R Studio v.1.3.959
 
 ---
@@ -43,16 +44,16 @@ library(fpc)
 library(factoextra)
 
 library(knitr)
-```
----
 
----
+```
+
+
 ```Load Dataset Iris
 
 dim(iris)
    [1] 150   5
  Examine dataset information
----
+
 head(iris, 4)
      Sepal.Length Sepal.Width Petal.Length Petal.Width Species
    1          5.1         3.5          1.4         0.2  setosa
@@ -64,7 +65,7 @@ tail(iris, 2)
    149          6.2         3.4          5.4         2.3 virginica
    150          5.9         3.0          5.1         1.8 virginica
 
----
+
 summary(iris)
      Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
     Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
@@ -79,28 +80,28 @@ summary(iris)
     virginica :50  
                    
                    
----  
+ 
 ```
 names(iris)
 
 "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
 
----
+
 ```
 Examine Iris data information
 
  Chart matrix
 pairs(iris[,1:4], col=iris$Species)
 ```
----
+
 ![](iris-images/matrix.png)
----
+
 
 
 Initial Results from the chart matrix shows there there appears to be some clustering in the data based on length and width of the sepals and petals of the iris flowers that were measured for the data set.
 
 
----
+
 
 ```Grid analysis of histograms of the Sepal Lengt and Width and the Petal Length and Width.
 
@@ -123,16 +124,15 @@ grid.arrange(p1, p2, p3, p4, ncol = 2)
    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
    `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
----
 
 ![](iris-images/histograms.png)
 
----
+
 
 
 Histograms show some patterns that show some relationship between the widths and lengths of the sepals and petals of the flowers.
 
----
+
 ```Relook at the relationship between width and length with scatterplot
 sp1 <- ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species), data = iris) +
   facet_wrap(~Species) + geom_point()
@@ -144,10 +144,10 @@ sp2 <- ggplot(aes(x = Petal.Length, y = Petal.Width, color = Species), data = ir
 
 grid.arrange(sp1, sp2, ncol = 1)
 ```
----
+
 ![](iris-images/scatterplots.png)
 
----
+
 
 
  Again, at first blush, there appears to be a relationship between length and width of sepals and petals.
@@ -155,7 +155,7 @@ grid.arrange(sp1, sp2, ncol = 1)
 
 
 
----
+
 ```Relook of the Iris data using boxplots
 
 
@@ -167,11 +167,11 @@ bp2 <- ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species), data = ir
 
 grid.arrange(bp1, bp2, ncol = 1)
 ```
----
+
 
 ![](iris-images/boxplots.png)
 
----
+
 ```Cluster analysis of the Iris data.
 
  Cluster analysis, droping species colum to clean dataset.
@@ -187,26 +187,26 @@ clusters_iris <- kmeans(data_for_clustering, centers = 3)
 plotcluster(data_for_clustering,clusters_iris$cluster) 
 ```
 
----
+
 ![](iris-images/clusterplot.png)
 
----
+
 
 ```Another look at clustering of the Iris data.
 
 clusplot(data_for_clustering, clusters_iris$cluster, color = TRUE, shade = TRUE)
 ```
----
+
 ![](iris-images/clusterplot2.png)
 
----
 
-###Conclusion
+
+### Conclusion
 
 Based on the last plot, it appears that there are two cluster groups, Iris setosa, while the other cluster contains both Iris virginica and Iris versicolor. The data provided in the Iris set doesn’t provide enough separation between virginica and versicolor to be used as a predictive model.
 
----
-###Credits
+
+### Credits
 
 [1] The Use of Multiple Measurements in Taxonomic Problems. Author: Fisher, Ronald Aylmer, Sir, 1890-1962 https://digital.library.adelaide.edu.au/dspace/handle/2440/15227
 
